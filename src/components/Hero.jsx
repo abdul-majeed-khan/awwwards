@@ -56,6 +56,53 @@ const Hero = () => {
     }
   }, {dependencies: [currentIndex], revertOnUpdate: true, });
 
+  // Heading scroll animation
+  useGSAP(() => {
+    const ctx = gsap.context(() => {
+      const isMobile = window.innerWidth <= 768; // Check if mobile viewport
+    
+      // Set x values based on screen size
+      const xOffset = isMobile ? 100 : 350; 
+      const yOffset = isMobile ? 800 : 700;  
+      const xxOffset = isMobile ? 100 : 350;  
+      const yyOffset = isMobile ? 64 : 28;  
+
+      // Animation for "REDEFINE" coming down and right
+      gsap.fromTo(".scroll-heading",
+        { y: 0, x: 0 },
+        {
+          y: yOffset,
+          x: xOffset,
+          scrollTrigger: {
+            trigger: "#video-frame",
+            start: "top top",
+            end: "bottom center",
+            scrub: true,
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+  
+      // Animation for "GAMING" going up and left
+      gsap.fromTo(".bottom-heading",
+        { y: 0, x: 0 },
+        {
+          y: -yyOffset,
+          x: -xxOffset,
+          scrollTrigger: {
+            trigger: "#video-frame",
+            start: "top top",
+            end: "bottom center",
+            scrub: true,
+            toggleActions: "play none none reverse"
+          }
+        }
+      );
+    });
+  
+    return () => ctx.revert();
+  }, []);
+
   useGSAP(() => {
     gsap.set("#video-frame", {
       clipPath: "polygon(89% 86%, 37% 0, 89% 86%, 8% 68%)",
@@ -133,8 +180,8 @@ const Hero = () => {
               </div>
             </div>
         </div>
-        <h1 className="special-font hero-heading absolute top-24 left-10 text-black">Redefi<b>n</b>e</h1>
-        <h1 className="special-font hero-heading absolute bottom-5 right-5 text-black">G<b>a</b>ming</h1>
+        <h1 className="special-font hero-heading scroll-heading absolute top-0 left-0 text-black">Redefi<b>n</b>e</h1>
+        <h1 className="special-font hero-heading bottom-heading absolute bottom-0 right-0 text-black">G<b>a</b>ming</h1>
     </div>
   )
 }
