@@ -73,6 +73,8 @@ const Hero = () => {
         {
           y: yOffset,
           x: xOffset,
+          smooth: 2,
+          effects: true,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -89,6 +91,8 @@ const Hero = () => {
         {
           y: -yyOffset,
           x: -xxOffset,
+          smooth: 2,
+          effects: true,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -168,20 +172,18 @@ const Hero = () => {
                 onLoadedData={handleVideoLoad}
               />
             </div>
-            <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">
-              G<b>a</b>ming
-            </h1>
+            {/* <h1 className="special-font hero-heading absolute bottom-5 right-5 z-40 text-blue-75">G<b>a</b>ming</h1> */}
 
-            <div className="absolute left-0 top-0 z-40 size-full">
+            <div className="absolute left-0 lg:top-48 top-16 z-40 size-full">
               <div className="mt-24 px-5 sm:px-10">
-                <h1 className="special-font hero-heading text-blue-100">Redefi<b>n</b>e</h1>
+                {/* <h1 className="special-font hero-heading text-blue-100">Redefi<b>n</b>e</h1> */}
                 <p className="mb-5 max-w-64 font-robert-regular text-blue-100">Enter the Metagame Layer <br /> Unleash the Play Economy</p>
                 <Button id="watch-trailer" title="Watch Trailer" leftIcon={<TiLocationArrow />} containerClass="!bg-yellow-300 flex-center gap-1"/>
               </div>
             </div>
         </div>
-        <h1 className="special-font hero-heading scroll-heading absolute top-0 left-0 text-black">Redefi<b>n</b>e</h1>
-        <h1 className="special-font hero-heading bottom-heading absolute bottom-0 right-0 text-black">G<b>a</b>ming</h1>
+        <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-purple-500 z-40">Redefi<b>n</b>e</h1>
+        <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-yellow-500 z-40 ">G<b>a</b>ming</h1>
     </div>
   )
 }
