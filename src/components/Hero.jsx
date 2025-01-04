@@ -62,10 +62,10 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768; // Check if mobile viewport
     
       // Set x values based on screen size
-      const xOffset = isMobile ? 100 : 350; 
-      const yOffset = isMobile ? 800 : 700;  
-      const xxOffset = isMobile ? 100 : 350;  
-      const yyOffset = isMobile ? 64 : 28;  
+      const xOffset = isMobile ? 80 : 350; 
+      const yOffset = isMobile ? 600 : 600;  
+      const xxOffset = isMobile ? 80 : 350;  
+      const yyOffset = isMobile ? 148 : 12;  
 
       // Animation for "REDEFINE" coming down and right
       gsap.fromTo(".scroll-heading",
@@ -182,8 +182,8 @@ const Hero = () => {
               </div>
             </div>
         </div>
-        <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-purple-500 z-40">Redefi<b>n</b>e</h1>
-        <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-yellow-500 z-40 ">G<b>a</b>ming</h1>
+        <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-blue-100 z-40">Redefi<b>n</b>e</h1>
+        <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-blue-100 z-40 ">G<b>a</b>ming</h1>
     </div>
   )
 }
