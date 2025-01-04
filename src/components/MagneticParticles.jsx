@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 
-const GlowingParticles = () => {
+const MagneticParticles = () => {
   const containerRef = useRef(null);
   const frameRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0 });
@@ -129,4 +129,4 @@ const GlowingParticles = () => {
   );
 };
 
-export default GlowingParticles;
+export default MagneticParticles;
