@@ -1,75 +1,82 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
-const MagneticParticles = () => {
+const GlowingParticles = () => {
   const containerRef = useRef(null);
-  const particlesRef = useRef([]);
-  const mouseRef = useRef({ x: 0, y: 0 });
   const frameRef = useRef(0);
-  const PARTICLES_COUNT = 30;
+  const mouseRef = useRef({ x: 0, y: 0 });
+  const PARTICLES_COUNT = 100;
+
+  // Colors matching your website's theme
+  const colors = [
+    { bg: 'bg-cyan-200', glow: '#22D3EE' },     // Cyan
+    { bg: 'bg-purple-200', glow: '#A78BFA' },   // Purple
+    { bg: 'bg-pink-200', glow: '#EC4899' },     // Pink
+    { bg: 'bg-blue-500', glow: '#60A5FA' },     // Blue
+  ];
   
-  // Generate random particles
-  const createParticle = (index) => ({
-    x: Math.random() * window.innerWidth,
-    y: Math.random() * window.innerHeight,
-    size: Math.random() * 3 + 1,
-    vx: 0,
-    vy: 0,
-    originX: Math.random() * window.innerWidth,
-    originY: Math.random() * window.innerHeight,
-    color: [
-      'bg-blue-400',
-      'bg-purple-400',
-      'bg-pink-400',
-      'bg-cyan-400'
-    ][Math.floor(Math.random() * 4)]
-  });
+  const [particles] = useState(() => 
+    Array.from({ length: PARTICLES_COUNT }, () => {
+      const colorIndex = Math.floor(Math.random() * colors.length);
+      const baseSize = Math.random() * 2 + 1; // Slightly smaller particles
+      return {
+        x: Math.random() * window.innerWidth,
+        y: Math.random() * window.innerHeight,
+        size: baseSize,
+        vx: 0,
+        vy: 0,
+        originX: Math.random() * window.innerWidth,
+        originY: Math.random() * window.innerHeight,
+        color: colors[colorIndex].bg,
+        glowColor: colors[colorIndex].glow,
+        pulseSpeed: 0.3 + Math.random() * 0.7, // Slower pulse
+        pulseOffset: Math.random() * Math.PI * 2,
+      };
+    })
+  );
+
+  const particlesRef = useRef(particles);
 
   useEffect(() => {
-    // Initialize particles
-    particlesRef.current = Array.from({ length: PARTICLES_COUNT }, (_, i) => 
-      createParticle(i)
-    );
+    let startTime = Date.now();
 
     const handleMouseMove = (e) => {
       mouseRef.current = { x: e.clientX, y: e.clientY };
     };
 
     const animate = () => {
-      particlesRef.current.forEach((particle, index) => {
-        const el = document.getElementById(`particle-${index}`);
+      const currentTime = Date.now();
+      const elapsed = (currentTime - startTime) / 1000;
+
+      particlesRef.current.forEach((particle, i) => {
+        const el = document.getElementById(`particle-${i}`);
         if (!el) return;
 
-        // Calculate distance from cursor
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
-        // Magnetic effect radius
         const radius = 200;
         
         if (distance < radius) {
-          // Attracted to cursor
           const force = (radius - distance) / radius;
           particle.vx += (dx / distance) * force * 0.8;
           particle.vy += (dy / distance) * force * 0.8;
         } else {
-          // Return to original position
           const dx = particle.originX - particle.x;
           const dy = particle.originY - particle.y;
           particle.vx += dx * 0.01;
           particle.vy += dy * 0.01;
         }
         
-        // Apply friction
         particle.vx *= 0.95;
         particle.vy *= 0.95;
-        
-        // Update position
         particle.x += particle.vx;
         particle.y += particle.vy;
+
+        const pulsePhase = elapsed * particle.pulseSpeed + particle.pulseOffset;
+        const pulseScale = 1 + Math.sin(pulsePhase) * 0.15; // Reduced pulse intensity
         
-        // Update DOM element
-        el.style.transform = `translate(${particle.x}px, ${particle.y}px)`;
+        el.style.transform = `translate(${particle.x}px, ${particle.y}px) scale(${pulseScale})`;
       });
 
       frameRef.current = requestAnimationFrame(animate);
@@ -78,12 +85,12 @@ const MagneticParticles = () => {
     window.addEventListener('mousemove', handleMouseMove);
     frameRef.current = requestAnimationFrame(animate);
 
-    // Handle window resize
     const handleResize = () => {
-      particlesRef.current.forEach(particle => {
-        particle.originX = Math.random() * window.innerWidth;
-        particle.originY = Math.random() * window.innerHeight;
-      });
+      particlesRef.current = particlesRef.current.map(particle => ({
+        ...particle,
+        originX: Math.random() * window.innerWidth,
+        originY: Math.random() * window.innerHeight
+      }));
     };
     
     window.addEventListener('resize', handleResize);
@@ -99,18 +106,22 @@ const MagneticParticles = () => {
     <div 
       ref={containerRef} 
       className="fixed inset-0 pointer-events-none overflow-hidden"
-      style={{ zIndex: 50 }}
+      style={{ zIndex: 0 }} // Lower z-index to not interfere with other elements
     >
-      {Array.from({ length: PARTICLES_COUNT }).map((_, index) => (
+      {particles.map((particle, i) => (
         <div
-          key={index}
-          id={`particle-${index}`}
-          className={`absolute rounded-full opacity-70 shadow-lg 
-            ${particlesRef.current[index]?.color || 'bg-blue-400'}`}
+          key={i}
+          id={`particle-${i}`}
+          className={`absolute rounded-full ${particle.color}`}
           style={{
-            width: `${particlesRef.current[index]?.size || 2}px`,
-            height: `${particlesRef.current[index]?.size || 2}px`,
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
             willChange: 'transform',
+            opacity: 0.6, // Reduced opacity
+            boxShadow: `
+              0 0 ${particle.size * 2}px ${particle.size * 0.8}px ${particle.glowColor}88,
+              0 0 ${particle.size * 3}px ${particle.size * 1.5}px ${particle.glowColor}44
+            `,
           }}
         />
       ))}
@@ -118,4 +129,4 @@ const MagneticParticles = () => {
   );
 };
 
-export default MagneticParticles;
+export default GlowingParticles;
