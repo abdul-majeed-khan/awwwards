@@ -7,11 +7,11 @@ import MagneticParticles from "./components/MagneticParticles"
 
 const App = () => {
   return (
-    <main className="relative min-h-screen w-screen overflow-x-hidden">
+    <main className="relative bg-black min-h-screen w-screen overflow-x-hidden">
+      <MagneticParticles />
       <Navbar />
       <Hero />
       <About />
-      <MagneticParticles />
       <Features />
     </main>
   )
