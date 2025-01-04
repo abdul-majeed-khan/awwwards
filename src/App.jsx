@@ -7,8 +7,7 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Features from './components/Features'
 import MagneticParticles from './components/MagneticParticles'
-// import { MultipleFollowers } from './components/MouseFollower';
-// import WaterCursor from './components/WaterCursor'
+
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
@@ -41,8 +40,6 @@ const App = () => {
   return (
     <main className="relative min-h-screen w-screen overflow-x-hidden">
       <MagneticParticles />
-      {/* <WaterCursor /> */}
-      {/* <MultipleFollowers /> */}
       <Navbar />
       <Hero />
       <About />
