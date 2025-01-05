@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Features from './components/Features'
 import MagneticParticles from "./components/MagneticParticles"
+import Particle from "./components/Particle"
 
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Hero />
       <About />
       <Features />
+      <Particle />
     </main>
   )
 }
