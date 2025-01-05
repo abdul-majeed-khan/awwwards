@@ -11,6 +11,25 @@ body {
   font-family: "General Sans", sans-serif;
 }
 
+/* Add these styles to your index.css */
+
+#next-image, #current-image {
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, clip-path;
+}
+
+/* Optional: Add smooth transition base styles */
+.image-transition {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ensure proper hardware acceleration */
+#video-frame {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
 @layer base {
   @font-face {
     font-family: "circular-web";
