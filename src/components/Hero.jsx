@@ -65,9 +65,9 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768; // Check if mobile viewport
     
       // Set x values based on screen size
-      const xOffset = isMobile ? 100 : 450; 
+      const xOffset = isMobile ? 100 : 350; 
       const yOffset = isMobile ? 600 : 600;  
-      const xxOffset = isMobile ? 100 : 450;  
+      const xxOffset = isMobile ? 100 : 250;  
       const yyOffset = isMobile ? 148 : 12;  
 
       // Animation for "REDEFINE" coming down and right
@@ -160,10 +160,52 @@ const Hero = () => {
     });
   }, []);
 
+  // In your Hero.jsx, add this after your existing animations
+useGSAP(() => {
+  // Create a timeline for the cutout image
+  const cutoutTl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#hero-section",
+      start: "top top", 
+      end: "bottom -100%",
+      scrub: 1,
+      pin: true,
+      pinSpacing: true,
+    }
+  });
+
+  // Animation sequence
+  cutoutTl
+    // First move the cutout image down
+    .to("#cutout-image", {
+      y: "50vh",
+      scale: 1.2,
+      duration: 1,
+    })
+    // Fade in texts from bottom
+    .from(".side-text-left", {
+      y: "100%",
+      opacity: 0,
+      duration: 0.5,
+    }, ">")
+    .from(".side-text-right", {
+      y: "100%",
+      opacity: 0,
+      duration: 0.5,
+    }, "<")
+    // Exit animation
+    .to(["#cutout-image", ".side-text-left", ".side-text-right"], {
+      y: "-100vh",
+      opacity: 0,
+      duration: 1,
+      stagger: 0.1,
+    });
+});
+
   const getImageSrc = (index) => `/img/planet-${index}.jpg`;
 
   return (
-    <div className="relative h-dvh w-screen overflow-hidden">
+    <div id="hero-section" className="relative h-dvh w-screen overflow-hidden">
       {isLoading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
           <div className="three-body">
@@ -202,6 +244,27 @@ const Hero = () => {
             className="absolute-center left-0 top-0 size-full object-cover object-center"
             onLoad={handleImageLoad}
           />
+        </div>
+
+        {/* Add the cutout image */}
+        <div 
+          id="cutout-image"
+          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-64 h-64"
+        >
+          <img 
+            src="/img/ship.png" 
+            alt="Cutout"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Side texts */}
+        <div className="fixed top-1/2 -translate-y-1/2 left-20 side-text-left z-40">
+          <h2 className="text-4xl text-blue-100">Left Side Text</h2>
+        </div>
+
+        <div className="fixed top-1/2 -translate-y-1/2 right-20 side-text-right z-40">
+          <h2 className="text-4xl text-blue-100">Right Side Text</h2>
         </div>
 
         <div className="absolute left-0 lg:top-48 top-16 z-40 size-full">
