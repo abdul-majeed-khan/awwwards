@@ -30,12 +30,13 @@ const About = () => {
     <div id="about" className="min-h-screen w-screen">
       <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
         <p className="font-general text-blue-100 text-sm uppercase md:text-[10px]">
-          Welcome to Zentry
+          Welcome to My World
         </p>
 
         <AnimatedTitle
-          title="Disc<b>o</b>ver the world's <br /> largest shared <b>a</b>dventure"
+          title="Ab<b>o</b>ut <b>M</b>e"
           containerClass="mt-5 !text-blue-100 text-center"
+          // effect="spiral"
         />
 
         <div className="about-subtext text-blue-100">
@@ -48,10 +49,10 @@ const About = () => {
       </div>
 
       <div className="h-dvh w-screen" id="clip">
-        <img src="img/stone.webp" className="absolute z-50 size-full" />
-        <div className="mask-clip-path about-image border border-gray-500">
+        {/* <img src="img/stone.webp" className="absolute z-50 size-full" /> */}
+        <div className="mask-clip-path about-image">
           <img
-            src="img/about.webp"
+            src="img/earth-astro.jpg"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover"
           />
