@@ -4,7 +4,7 @@ const MagneticParticles = () => {
   const containerRef = useRef(null);
   const frameRef = useRef(0);
   const mouseRef = useRef({ x: 0, y: 0 });
-  const PARTICLES_COUNT = 10;
+  const PARTICLES_COUNT = 100;
 
   // Colors matching your website's theme
   const colors = [
