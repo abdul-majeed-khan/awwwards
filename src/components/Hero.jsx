@@ -307,13 +307,13 @@ const Hero = () => {
           />
         </div>
         {/* Left side texts */}
-        <div className="fixed top-10 -translate-y-1/2 left-40 z-40">
+        <div className="fixed top-10 -translate-y-1/2 lg:left-40 left-10 z-40">
           {leftTexts.map((text, index) => (
             <div 
               key={`left-${index}`}
-              className={`scroll-text left-text-${index} absolute left-0 w-96`}
+              className={`scroll-text left-text-${index} absolute left-0 lg:w-96 w-50`}
             >
-              <h2 className="text-6xl uppercase font-bold bg-gradient-to-r from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-r from-gray-500 to-yellow-100 bg-clip-text text-transparent">
                 {text}
               </h2>
               <p className="mt-2 text-blue-100/80 text-lg">
@@ -324,13 +324,13 @@ const Hero = () => {
         </div>
 
         {/* Right side texts */}
-        <div className="fixed top-10 -translate-y-1/2 right-40 z-40">
+        <div className="fixed top-10 -translate-y-1/2 lg:right-40 right-10 z-40">
           {rightTexts.map((text, index) => (
             <div 
               key={`right-${index}`}
-              className={`scroll-text right-text-${index} absolute right-0 w-96 text-right`}
+              className={`scroll-text right-text-${index} absolute right-0 lg:w-96 w-50 text-right`}
             >
-              <h2 className="text-6xl uppercase font-bold bg-gradient-to-l from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-l from-gray-500 to-yellow-100 bg-clip-text text-transparent">
                 {text}
               </h2>
               <p className="mt-2 text-blue-100/80 text-lg">
