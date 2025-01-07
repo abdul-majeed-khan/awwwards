@@ -118,7 +118,7 @@ body {
 
 /* Add to your index.css or your styles file */
 .hero-heading {
-  font-size: 6rem; /* Adjust size as needed */
+  font-size: 10rem; /* Adjust size as needed */
   line-height: 1;
   transform: translateX(0);
   will-change: transform;
