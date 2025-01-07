@@ -23,7 +23,11 @@ const About = () => {
       width: "100vw",
       height: "100vh",
       borderRadius: 0,
-    });
+    })
+    .to(".image-overlay", {
+      opacity: 0.3,
+      duration: 0.5
+    }, "<")
   });
 
   return (
@@ -48,14 +52,22 @@ const About = () => {
         </div>
       </div>
 
-      <div className="h-dvh w-screen" id="clip">
-        {/* <img src="img/stone.webp" className="absolute z-50 size-full" /> */}
-        <div className="mask-clip-path about-image">
+      {/* Clip Section */}
+      <div className="h-dvh w-screen relative" id="clip">
+        {/* Image Container */}
+        <div className="mask-clip-path about-image relative overflow-hidden">
+          {/* Overlay Layer */}
+          <div className="image-overlay absolute inset-0 bg-black/60 z-10" />
+          
+          {/* Main Image */}
           <img
-            src="img/ship1-min.png"
+            src="img/hacker-green-min.jpg"
             alt="Background"
-            className="absolute left-0 top-0 size-full object-cover"
+            className="absolute left-0 top-0 size-full object-cover transform scale-105"
           />
+          
+          {/* Grain Effect */}
+          {/* <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay pointer-events-none" /> */}
         </div>
       </div>
     </div>
