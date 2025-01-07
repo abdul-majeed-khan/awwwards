@@ -64,13 +64,16 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768;
       
       // Set x values based on screen size
-      const xOffset = isMobile ? 60 : 200;
+      const xOffset = isMobile ? 10 : 200;
+      const xxOffset = isMobile ? 10 : 100;
+      const yOffset = isMobile ? 60 : 200;
   
       // Animation for "ABDUL" moving left
       gsap.fromTo(".scroll-heading",
         { x: 0 },
         {
-          x: -xOffset,
+          x: -xxOffset,
+          y: yOffset,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -86,6 +89,7 @@ const Hero = () => {
         { x: 0 },
         {
           x: xOffset,
+          y: yOffset,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -152,14 +156,14 @@ const Hero = () => {
 
   // In your Hero.jsx, add this after your existing animations
   const leftTexts = [
-    "Seamless Experience",
+    "Full-Stack Developer",
     // "Connect & Play",
     // "Unlock Rewards",
     // "Build Communities"
   ];
   
   const rightTexts = [
-    "Cross Platform Gaming",
+    "ML-Ops Engineer",
     // "Digital Innovation",
     // "Web3 Integration",
     // "Real Value Gaming"
@@ -186,8 +190,8 @@ const Hero = () => {
   
     // Move cutout image to center
     textsTl.to("#cutout-image", {
-      y: "50vh",
-      scale: 20,
+      y: "40vh",
+      scale: 16,
       duration: 1,
     });
   
@@ -277,14 +281,37 @@ const Hero = () => {
             onLoad={handleImageLoad}
           />
         </div>
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
-          <div className="flex items-center gap-4 md:gap-8"> {/* Container for side-by-side text */}
-            <h1 className="special-font hero-heading scroll-heading text-blue-100">
-              AB<b>D</b>UL
-            </h1>
-            <h1 className="special-font hero-heading bottom-heading text-blue-100">
-              M<b>A</b>JEED
-            </h1>
+        {/* Main content container - restructured */}
+        <div className="absolute mt-80 inset-0 flex flex-col items-center z-40">
+          {/* Top section - hero heading */}
+          <div className="flex-1 flex items-center">
+            <div className="flex items-center gap-4 md:gap-8">
+              <h1 className="special-font hero-heading scroll-heading text-blue-100 tracking-[15px]">
+                AB<b>D</b>UL
+              </h1>
+              <h1 className="special-font hero-heading bottom-heading text-blue-100 tracking-[15px]">
+                M<b>A</b>JEED
+              </h1>
+            </div>
+          </div>
+
+          {/* Bottom section - title and button */}
+          <div className="mb-40 flex flex-col items-center text-center ">
+            <div className="text-center mb-6">
+              <p className="text-lg md:text-xl font-robert-regular pointer-events-none text-blue-100/90">
+                Full-Stack Developer | ML Engineer
+              </p>
+              <p className="text-base md:text-lg font-robert-regular pointer-events-none text-blue-100/70 mt-1">
+                Check out my resume
+              </p>
+            </div>
+            
+            <Button 
+              id="download-resume" 
+              title="Download" 
+              leftIcon={<TiLocationArrow />} 
+              containerClass="!bg-yellow-300 hover:!bg-yellow-400 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-200"
+            />
           </div>
         </div>
 
@@ -331,24 +358,6 @@ const Hero = () => {
               </p>
             </div>
           ))}
-        </div>
-
-        <div className="mt-8 flex flex-col items-center pointer-events-auto">
-          <div className="text-center">
-            <p className="text-lg md:text-xl font-robert-regular text-blue-100/90">
-              Full-Stack Developer | ML Engineer
-            </p>
-            <p className="text-base md:text-lg font-robert-regular text-blue-100/70 mt-1">
-              Check out my resume
-            </p>
-          </div>
-          
-          <Button 
-            id="download-resume" 
-            title="Download" 
-            leftIcon={<TiLocationArrow />} 
-            containerClass="!bg-yellow-300 hover:!bg-yellow-400 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-200 mt-4"
-          />
         </div>
       </div>
     </div>
