@@ -59,25 +59,18 @@ const Hero = () => {
     }
   );
 
-  // Heading scroll animation
   useGSAP(() => {
     const ctx = gsap.context(() => {
-      const isMobile = window.innerWidth <= 768; // Check if mobile viewport
-    
+      const isMobile = window.innerWidth <= 768;
+      
       // Set x values based on screen size
-      const xOffset = isMobile ? 100 : 450; 
-      const yOffset = isMobile ? 600 : 550;  
-      const xxOffset = isMobile ? 100 : 450;  
-      const yyOffset = isMobile ? 148 : 60;  
-
-      // Animation for "REDEFINE" coming down and right
+      const xOffset = isMobile ? 60 : 200;
+  
+      // Animation for "ABDUL" moving left
       gsap.fromTo(".scroll-heading",
-        { y: 0, x: 0 },
+        { x: 0 },
         {
-          y: yOffset,
-          x: xOffset,
-          smooth: 2,
-          effects: true,
+          x: -xOffset,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -88,14 +81,11 @@ const Hero = () => {
         }
       );
   
-      // Animation for "GAMING" going up and left
+      // Animation for "MAJEED" moving right
       gsap.fromTo(".bottom-heading",
-        { y: 0, x: 0 },
+        { x: 0 },
         {
-          y: -yyOffset,
-          x: -xxOffset,
-          smooth: 2,
-          effects: true,
+          x: xOffset,
           scrollTrigger: {
             trigger: "#video-frame",
             start: "top top",
@@ -181,7 +171,7 @@ const Hero = () => {
       scrollTrigger: {
         trigger: "#hero-section",
         start: "top top",
-        end: "bottom -600%", // Increased to accommodate more text
+        end: "bottom -200%", // Increased to accommodate more text
         scrub: 1,
         pin: true,
         pinSpacing: true,
@@ -287,13 +277,16 @@ const Hero = () => {
             onLoad={handleImageLoad}
           />
         </div>
-
-        <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-blue-100 z-40">
-          Ab<b>d</b>ul
-        </h1>
-        <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-blue-100 z-40">
-          M<b>a</b>jeed
-        </h1>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-40">
+          <div className="flex items-center gap-4 md:gap-8"> {/* Container for side-by-side text */}
+            <h1 className="special-font hero-heading scroll-heading text-blue-100">
+              AB<b>D</b>UL
+            </h1>
+            <h1 className="special-font hero-heading bottom-heading text-blue-100">
+              M<b>A</b>JEED
+            </h1>
+          </div>
+        </div>
 
         {/* Add the cutout image */}
         <div 
@@ -340,18 +333,22 @@ const Hero = () => {
           ))}
         </div>
 
-        <div className="absolute left-0 lg:top-60 top-16 z-40 size-full">
-          <div className="mt-24 px-5 sm:px-10">
-            <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Full-Stack Developer | ML Engineer <br /> Check out my resume
+        <div className="mt-8 flex flex-col items-center pointer-events-auto">
+          <div className="text-center">
+            <p className="text-lg md:text-xl font-robert-regular text-blue-100/90">
+              Full-Stack Developer | ML Engineer
             </p>
-            <Button 
-              id="watch-trailer" 
-              title="Download" 
-              leftIcon={<TiLocationArrow />} 
-              containerClass="!bg-yellow-300 flex-center gap-1"
-            />
+            <p className="text-base md:text-lg font-robert-regular text-blue-100/70 mt-1">
+              Check out my resume
+            </p>
           </div>
+          
+          <Button 
+            id="download-resume" 
+            title="Download" 
+            leftIcon={<TiLocationArrow />} 
+            containerClass="!bg-yellow-300 hover:!bg-yellow-400 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-200 mt-4"
+          />
         </div>
       </div>
     </div>
