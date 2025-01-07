@@ -52,7 +52,7 @@ const About = () => {
         {/* <img src="img/stone.webp" className="absolute z-50 size-full" /> */}
         <div className="mask-clip-path about-image">
           <img
-            src="img/earth-astro.jpg"
+            src="img/ship1-min.png"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover"
           />
