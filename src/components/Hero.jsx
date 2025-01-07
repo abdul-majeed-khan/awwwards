@@ -163,16 +163,16 @@ const Hero = () => {
   // In your Hero.jsx, add this after your existing animations
   const leftTexts = [
     "Seamless Experience",
-    "Connect & Play",
-    "Unlock Rewards",
-    "Build Communities"
+    // "Connect & Play",
+    // "Unlock Rewards",
+    // "Build Communities"
   ];
   
   const rightTexts = [
     "Cross Platform Gaming",
-    "Digital Innovation",
-    "Web3 Integration",
-    "Real Value Gaming"
+    // "Digital Innovation",
+    // "Web3 Integration",
+    // "Real Value Gaming"
   ];
   
   useGSAP(() => {
