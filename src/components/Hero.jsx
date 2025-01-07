@@ -65,10 +65,10 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768; // Check if mobile viewport
     
       // Set x values based on screen size
-      const xOffset = isMobile ? 100 : 350; 
-      const yOffset = isMobile ? 600 : 600;  
-      const xxOffset = isMobile ? 100 : 250;  
-      const yyOffset = isMobile ? 148 : 12;  
+      const xOffset = isMobile ? 100 : 450; 
+      const yOffset = isMobile ? 600 : 550;  
+      const xxOffset = isMobile ? 100 : 450;  
+      const yyOffset = isMobile ? 148 : 60;  
 
       // Animation for "REDEFINE" coming down and right
       gsap.fromTo(".scroll-heading",
@@ -161,46 +161,88 @@ const Hero = () => {
   }, []);
 
   // In your Hero.jsx, add this after your existing animations
-useGSAP(() => {
-  // Create a timeline for the cutout image
-  const cutoutTl = gsap.timeline({
-    scrollTrigger: {
-      trigger: "#hero-section",
-      start: "top top", 
-      end: "bottom -100%",
-      scrub: 1,
-      pin: true,
-      pinSpacing: true,
-    }
-  });
-
-  // Animation sequence
-  cutoutTl
-    // First move the cutout image down
-    .to("#cutout-image", {
-      y: "50vh",
-      scale: 1.2,
-      duration: 1,
-    })
-    // Fade in texts from bottom
-    .from(".side-text-left", {
-      y: "100%",
-      opacity: 0,
-      duration: 0.5,
-    }, ">")
-    .from(".side-text-right", {
-      y: "100%",
-      opacity: 0,
-      duration: 0.5,
-    }, "<")
-    // Exit animation
-    .to(["#cutout-image", ".side-text-left", ".side-text-right"], {
-      y: "-100vh",
-      opacity: 0,
-      duration: 1,
-      stagger: 0.1,
+  const leftTexts = [
+    "Seamless Experience",
+    "Connect & Play",
+    "Unlock Rewards",
+    "Build Communities"
+  ];
+  
+  const rightTexts = [
+    "Cross Platform Gaming",
+    "Digital Innovation",
+    "Web3 Integration",
+    "Real Value Gaming"
+  ];
+  
+  useGSAP(() => {
+    // Create a timeline for the sequence
+    const textsTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#hero-section",
+        start: "top top",
+        end: "bottom -600%", // Increased to accommodate more text
+        scrub: 1,
+        pin: true,
+        pinSpacing: true,
+      }
     });
-});
+  
+    // Initial setup
+    gsap.set(".scroll-text", { 
+      y: "100vh",
+      opacity: 0 
+    });
+  
+    // Move cutout image to center
+    textsTl.to("#cutout-image", {
+      y: "50vh",
+      scale: 20,
+      duration: 1,
+    });
+  
+    // Animate each pair of texts
+    leftTexts.forEach((_, index) => {
+      textsTl
+        // Bring in texts
+        .to(`.left-text-${index}`, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+        })
+        .to(`.right-text-${index}`, {
+          y: 0,
+          opacity: 1,
+          duration: 0.5,
+        }, "<") // Synchronize with left text
+  
+        // Keep for a moment
+        .to({}, { duration: 0.5 })
+  
+        // Move texts out
+        .to(`.left-text-${index}`, {
+          x: "-100vh, 100vh",
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.1,
+        })
+        .to(`.right-text-${index}`, {
+          x: "100vh, -100vh",
+          opacity: 0,
+          duration: 0.5,
+          stagger: 0.1,
+        });
+
+    });
+  
+    // Final exit for cutout
+    textsTl.to("#cutout-image", {
+      y: "118vh",
+      opacity: 1,
+      duration: 1,
+    });
+  }, []);
+    
 
   const getImageSrc = (index) => `/img/planet-${index}.jpg`;
 
@@ -246,47 +288,72 @@ useGSAP(() => {
           />
         </div>
 
+        <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-blue-100 z-40">
+          Ab<b>d</b>ul
+        </h1>
+        <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-blue-100 z-40">
+          M<b>a</b>jeed
+        </h1>
+
         {/* Add the cutout image */}
         <div 
           id="cutout-image"
-          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-64 h-64"
+          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-10 h-10"
         >
           <img 
-            src="/img/ship.png" 
+            src="/img/ship1-min.png" 
             alt="Cutout"
             className="w-full h-full object-cover"
           />
         </div>
-
-        {/* Side texts */}
-        <div className="fixed top-1/2 -translate-y-1/2 left-20 side-text-left z-40">
-          <h2 className="text-4xl text-blue-100">Left Side Text</h2>
+        {/* Left side texts */}
+        <div className="fixed top-10 -translate-y-1/2 left-40 z-40">
+          {leftTexts.map((text, index) => (
+            <div 
+              key={`left-${index}`}
+              className={`scroll-text left-text-${index} absolute left-0 w-96`}
+            >
+              <h2 className="text-6xl uppercase font-bold bg-gradient-to-r from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+                {text}
+              </h2>
+              <p className="mt-2 text-blue-100/80 text-lg">
+                {/* Add descriptions if needed */}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="fixed top-1/2 -translate-y-1/2 right-20 side-text-right z-40">
-          <h2 className="text-4xl text-blue-100">Right Side Text</h2>
+        {/* Right side texts */}
+        <div className="fixed top-10 -translate-y-1/2 right-40 z-40">
+          {rightTexts.map((text, index) => (
+            <div 
+              key={`right-${index}`}
+              className={`scroll-text right-text-${index} absolute right-0 w-96 text-right`}
+            >
+              <h2 className="text-6xl uppercase font-bold bg-gradient-to-l from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+                {text}
+              </h2>
+              <p className="mt-2 text-blue-100/80 text-lg">
+                {/* Add descriptions if needed */}
+              </p>
+            </div>
+          ))}
         </div>
 
-        <div className="absolute left-0 lg:top-48 top-16 z-40 size-full">
+        <div className="absolute left-0 lg:top-60 top-16 z-40 size-full">
           <div className="mt-24 px-5 sm:px-10">
             <p className="mb-5 max-w-64 font-robert-regular text-blue-100">
-              Enter the Metagame Layer <br /> Unleash the Play Economy
+              Full-Stack Developer | ML Engineer <br /> Check out my resume
             </p>
             <Button 
               id="watch-trailer" 
-              title="Watch Trailer" 
+              title="Download" 
               leftIcon={<TiLocationArrow />} 
               containerClass="!bg-yellow-300 flex-center gap-1"
             />
           </div>
         </div>
       </div>
-      <h1 className="special-font hero-heading scroll-heading absolute top-24 left-0 px-5 sm:px-10 text-blue-100 z-40">
-        Ab<b>d</b>ul
-      </h1>
-      <h1 className="special-font hero-heading bottom-heading absolute bottom-5 right-5 text-blue-100 z-40">
-        M<b>a</b>jeed
-      </h1>
     </div>
   )
 }
