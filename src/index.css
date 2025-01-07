@@ -116,6 +116,33 @@ body {
   }
 }
 
+/* Add to your index.css or your styles file */
+.hero-heading {
+  font-size: 6rem; /* Adjust size as needed */
+  line-height: 1;
+  transform: translateX(0);
+  will-change: transform;
+}
+
+@media (max-width: 768px) {
+  .hero-heading {
+    font-size: 3rem;
+  }
+}
+
+/* Optional: Add these for smoother animations */
+.scroll-heading,
+.bottom-heading {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Add gap between texts */
+.hero-heading + .hero-heading {
+  margin-left: 1rem;
+}
+
 
 @layer base {
   @font-face {
