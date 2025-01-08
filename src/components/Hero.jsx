@@ -4,6 +4,7 @@ import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import AnimatedTitle from './AnimatedTitle';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,7 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768;
       
       // Set x values based on screen size
-      const xOffset = isMobile ? 10 : 200;
+      const xOffset = isMobile ? 10 : 220;
       const xxOffset = isMobile ? 10 : 100;
       const yOffset = isMobile ? 60 : 200;
   
@@ -260,7 +261,7 @@ const Hero = () => {
                 src={getImageSrc(upcomingImageIndex)}
                 alt={`Hero ${upcomingImageIndex}`}
                 id="current-image"
-                className="size-64 origin-center scale-150 object-cover object-center"
+                className="size-64 origin-center scale-150 object-cover object-center overlay-black/80"
                 onLoad={handleImageLoad}
               />
             </div>
@@ -286,14 +287,20 @@ const Hero = () => {
           {/* Top section - hero heading */}
           <div className="flex-1 flex items-center">
             <div className="flex items-center gap-4 md:gap-8">
-              <h1 className="special-font hero-heading scroll-heading text-blue-100 tracking-[15px]">
+              <h1 className="special-font hero-heading scroll-heading pointer-events-none text-blue-100 tracking-[15px]">
                 AB<b>D</b>UL
               </h1>
-              <h1 className="special-font hero-heading bottom-heading text-blue-100 tracking-[15px]">
+              <h1 className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]">
                 M<b>A</b>JEED
               </h1>
             </div>
           </div>
+
+          <AnimatedTitle
+            title="<b>MJ</b>"
+            containerClass="!text-blue-100 text-center"
+            effect="shuffle"
+          />
 
           {/* Bottom section - title and button */}
           <div className="mb-40 flex flex-col items-center text-center ">
