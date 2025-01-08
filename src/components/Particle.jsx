@@ -1,5 +1,5 @@
 import ParticleText from "./ParticleText";
-// import DigitalRain from "./DigitalRain"
+import DigitalRain from "./DigitalRain"
 
 const Particle = () => {
   return (
@@ -7,9 +7,9 @@ const Particle = () => {
         <div className="absolute inset-0">
             <ParticleText text="NEXUS" fontSize={120} />
         </div>
-        {/* <div className="absolute inset-0">
+        <div className="absolute inset-0">
             <DigitalRain />
-        </div> */}
+        </div>
     </section>
   )
 }
