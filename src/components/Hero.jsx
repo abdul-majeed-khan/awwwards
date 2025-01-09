@@ -5,6 +5,8 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import AnimatedTitle from './AnimatedTitle';
+// import TextReveal from './TextReveal'
+import HyperText from './HyperText';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -191,7 +193,7 @@ const Hero = () => {
   
     // Move cutout image to center
     textsTl.to("#cutout-image", {
-      y: "40vh",
+      y: "20vh",
       scale: 16,
       duration: 1,
     });
@@ -287,12 +289,14 @@ const Hero = () => {
           {/* Top section - hero heading */}
           <div className="flex-1 flex items-center">
             <div className="flex items-center gap-4 md:gap-8">
-              <h1 className="special-font hero-heading scroll-heading pointer-events-none text-blue-100 tracking-[15px]">
-                AB<b>D</b>UL
-              </h1>
-              <h1 className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]">
-                M<b>A</b>JEED
-              </h1>
+              <HyperText
+                text="ABDUL"
+                className="special-font hero-heading scroll-heading pointer-events-none text-blue-100 tracking-[15px]"
+              />
+              <HyperText
+              text="MAJEED"
+                className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]"
+              />
             </div>
           </div>
 
