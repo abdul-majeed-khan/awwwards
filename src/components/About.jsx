@@ -72,7 +72,7 @@ const About = () => {
           
           {/* Main Image */}
           <img
-            src="img/panther-theme.jpg"
+            src="img/panther0.jpg"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover transform scale-105"
           />
