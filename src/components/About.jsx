@@ -28,6 +28,12 @@ const About = () => {
       opacity: 0.3,
       duration: 0.5
     }, "<")
+    .fromTo(".front-image", {
+      opacity: 0
+    }, {
+      opacity: 1,
+      duration: 0.5
+    }, "<");
   });
 
   return (
@@ -44,16 +50,21 @@ const About = () => {
         />
 
         <div className="about-subtext text-blue-100">
-          <p>The Game of Games begins—your life, now an epic MMORPG</p>
-          <p className="text-blue-100">
-            Zentry unites every player from countless games and platforms, both
-            digital and physical, into a unified Play Economy
+          <p>React Developer with 4 years of experience, specializing in modern web
+             applications and AI integration. Deep learning certified with hands-on
+             experience in CUDA neural networks and LLMs. Passionate about creating
+             innovative solutions at the intersection of web development and artificial intelligence.
           </p>
         </div>
       </div>
 
       {/* Clip Section */}
       <div className="h-dvh w-screen relative" id="clip">
+        <img
+          src="img/ab-sec.png"
+          alt="Front"
+          className="front-image absolute left-0 top-0 size-full z-40 object-cover transform scale-80"
+        />
         {/* Image Container */}
         <div className="mask-clip-path about-image relative overflow-hidden">
           {/* Overlay Layer */}
