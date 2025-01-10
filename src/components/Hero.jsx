@@ -194,7 +194,7 @@ const Hero = () => {
     // Move cutout image to center
     textsTl.to("#cutout-image", {
       y: "20vh",
-      scale: 16,
+      scale: 15,
       duration: 1,
     });
   
@@ -290,12 +290,12 @@ const Hero = () => {
           <div className="flex-1 flex items-center">
             <div className="flex items-center gap-4 md:gap-8">
               <HyperText
-                text="ABDUL"
+                text="<b>ABDUL</b>"
                 className="special-font hero-heading scroll-heading pointer-events-none text-blue-100 tracking-[15px]"
               />
               <HyperText
-              text="MAJEED"
-                className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]"
+              text="<b>MAJEED</b>"
+              className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]"
               />
             </div>
           </div>
@@ -344,7 +344,7 @@ const Hero = () => {
               key={`left-${index}`}
               className={`scroll-text left-text-${index} absolute left-0 lg:w-96 w-50`}
             >
-              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-r from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-r from-gray-500 to-purple-100 bg-clip-text text-transparent">
                 {text}
               </h2>
               <p className="mt-2 text-blue-100/80 text-lg">
@@ -361,7 +361,7 @@ const Hero = () => {
               key={`right-${index}`}
               className={`scroll-text right-text-${index} absolute right-0 lg:w-96 w-50 text-right`}
             >
-              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-l from-gray-500 to-yellow-100 bg-clip-text text-transparent">
+              <h2 className="lg:text-6xl text-xl uppercase font-bold bg-gradient-to-l from-gray-500 to-purple-100 bg-clip-text text-transparent">
                 {text}
               </h2>
               <p className="mt-2 text-blue-100/80 text-lg">
