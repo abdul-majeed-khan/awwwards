@@ -68,28 +68,39 @@ const HyperText = ({ text, className }) => {
   }, []);
 
   // Create letters with glow effects
-  const letters = text.split('').map((letter, index) => (
-    <span 
-      key={index} 
-      className="letter relative inline-block transition-transform will-change-transform"
-      style={{ display: letter === ' ' ? 'inline' : 'inline-block' }}
-    >
-      {/* Glow layers */}
-      <span className="absolute inset-0 blur-[2px] text-blue-100/30">
-        {letter}
+  const letters = text.split(/(<b>|<\/b>)/).map((part, partIndex) => {
+    if (part === '<b>' || part === '</b>') return null;
+    
+    const isBold = text.slice(0, text.indexOf(part)).split('<b>').length > 
+                   text.slice(0, text.indexOf(part)).split('</b>').length;
+
+    return part.split('').map((letter, letterIndex) => (
+      <span 
+        key={`${partIndex}-${letterIndex}`} 
+        className="letter relative inline-block transition-transform will-change-transform cursor-pointer"
+        style={{ display: letter === ' ' ? 'inline' : 'inline-block' }}
+      >
+        {/* Glow layers */}
+        <span className="absolute inset-0 blur-[2px] text-blue-100/30">
+          {letter}
+        </span>
+        <span className="absolute inset-0 blur-md text-blue-100/20">
+          {letter}
+        </span>
+        
+        {/* Base layer with glow */}
+        <span 
+          className={`relative text-blue-100 ${isBold ? 'font-[Zentry]' : ''}`}
+          style={{ 
+            filter: 'drop-shadow(0 0 8px rgba(191, 219, 254, 0.3))',
+            fontFeatureSettings: isBold ? '"ss01" on' : 'normal'
+          }}
+        >
+          {letter}
+        </span>
       </span>
-      <span className="absolute inset-0 blur-md text-blue-100/20">
-        {letter}
-      </span>
-      
-      {/* Base layer with glow */}
-      <span className="relative text-blue-100" style={{ 
-        filter: 'drop-shadow(0 0 8px rgba(191, 219, 254, 0.3))',
-      }}>
-        {letter}
-      </span>
-    </span>
-  ));
+    ))
+  }).filter(Boolean).flat();
 
   return (
     <h1 
