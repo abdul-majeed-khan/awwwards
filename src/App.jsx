@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar"
 import Features from './components/Features'
 import MagneticParticles from "./components/MagneticParticles"
 // import Particle from "./components/Particle"
+import Footer from "./components/footer"
 
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <About />
       <Features />
       {/* <Particle /> */}
+      <Footer />
     </main>
   )
 }
