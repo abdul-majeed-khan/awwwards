@@ -3,7 +3,7 @@ import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Features from './components/Features'
 import MagneticParticles from "./components/MagneticParticles"
-// import Particle from "./components/Particle"
+import Particle from "./components/Particle"
 import Footer from "./components/footer"
 
 
@@ -15,7 +15,7 @@ const App = () => {
       <Hero />
       <About />
       <Features />
-      {/* <Particle /> */}
+      <Particle />
       <Footer />
     </main>
   )
