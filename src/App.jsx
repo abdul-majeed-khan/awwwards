@@ -1,6 +1,5 @@
 import About from "./components/About"
 import Hero from "./components/Hero"
-import Collaboration from "./components/Skills"
 import Navbar from "./components/Navbar"
 import Features from './components/Features'
 import MagneticParticles from "./components/MagneticParticles"
@@ -15,7 +14,6 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
-      <Collaboration />
       <Features />
       <Particle />
       <Footer />
