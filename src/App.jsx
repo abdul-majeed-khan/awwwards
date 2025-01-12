@@ -2,7 +2,7 @@ import About from "./components/About"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import Features from './components/Features'
-// import MagneticParticles from "./components/MagneticParticles"
+import MagneticParticles from "./components/MagneticParticles"
 import Particle from "./components/Particle"
 import Footer from "./components/footer"
 
@@ -10,7 +10,7 @@ import Footer from "./components/footer"
 const App = () => {
   return (
     <main className="relative bg-black min-h-screen w-screen overflow-x-hidden">
-      {/* <MagneticParticles /> */}
+      <MagneticParticles />
       <Navbar />
       <Hero />
       <About />
