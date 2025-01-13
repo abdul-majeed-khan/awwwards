@@ -194,8 +194,8 @@ const Hero = () => {
     // Move cutout image to center
     textsTl.to("#cutout-image", {
       y: "20vh",
-      scale: 15,
-      duration: 1,
+      scale: 150,
+      duration: 2,
     });
   
     // Animate each pair of texts
@@ -244,7 +244,7 @@ const Hero = () => {
   const getImageSrc = (index) => `/img/planet-${index}.jpg`;
 
   return (
-    <div id="hero-section" className="relative h-dvh w-screen overflow-hidden">
+    <div id="hero-section" className="relative h-dvh w-screen overflow-hidden opacity-60">
       {isLoading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
           <div className="three-body">
@@ -329,7 +329,7 @@ const Hero = () => {
         {/* Add the cutout image */}
         <div 
           id="cutout-image"
-          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-10 h-10"
+          className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-1 h-1"
         >
           <img 
             src="/img/ship1-min.png" 
