@@ -244,9 +244,9 @@ const Hero = () => {
   const getImageSrc = (index) => `/img/planet-${index}.jpg`;
 
   return (
-    <div id="hero-section" className="relative h-dvh w-screen overflow-hidden opacity-60">
+    <div id="hero-section" className="relative h-dvh w-screen overflow-hidden">
       {isLoading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-violet-50">
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
           <div className="three-body">
             <div className="three-body__dot" />
             <div className="three-body__dot" />
@@ -254,7 +254,7 @@ const Hero = () => {
           </div>
         </div>
       )}
-      <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-blue-75">
+      <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black">
         <div>
           <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
             <div onClick={handleMiniImageClick} className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100">
@@ -263,7 +263,7 @@ const Hero = () => {
                 src={getImageSrc(upcomingImageIndex)}
                 alt={`Hero ${upcomingImageIndex}`}
                 id="current-image"
-                className="size-64 origin-center scale-150 object-cover object-center overlay-black/80"
+                className="size-64 origin-center scale-150 object-cover object-center opacity-60"
                 onLoad={handleImageLoad}
               />
             </div>
@@ -273,14 +273,14 @@ const Hero = () => {
             src={getImageSrc(currentIndex)}
             alt={`Hero ${currentIndex}`}
             id="next-image"
-            className="absolute-center invisible absolute z-20 size-64 object-cover object-center"
+            className="absolute-center invisible absolute z-20 size-64 object-cover object-center opacity-60"
             onLoad={handleImageLoad}
           />
 
           <img 
             src={getImageSrc(currentIndex === totalImages - 1 ? 1 : currentIndex)}
             alt="Hero main"
-            className="absolute-center left-0 top-0 size-full object-cover object-center"
+            className="absolute-center left-0 top-0 size-full object-cover object-center opacity-60"
             onLoad={handleImageLoad}
           />
         </div>
@@ -332,7 +332,7 @@ const Hero = () => {
           className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-1 h-1"
         >
           <img 
-            src="/img/ship1-min.png" 
+            src="/img/space-1.png" 
             alt="Cutout"
             className="w-full h-full object-cover"
           />
