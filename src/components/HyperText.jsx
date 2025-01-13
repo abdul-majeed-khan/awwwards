@@ -81,10 +81,10 @@ const HyperText = ({ text, className }) => {
         style={{ display: letter === ' ' ? 'inline' : 'inline-block' }}
       >
         {/* Glow layers */}
-        <span className="absolute inset-0 blur-[2px] text-blue-100/30">
+        <span className="absolute inset-0 blur-[2px] text-red-500/30">
           {letter}
         </span>
-        <span className="absolute inset-0 blur-md text-blue-100/20">
+        <span className="absolute inset-0 blur-md text-red-400/20">
           {letter}
         </span>
         
