@@ -1,4 +1,3 @@
-import { useState, useRef, useEffect } from 'react'
 import Button from './Button';
 import { TiLocationArrow } from 'react-icons/ti';
 import { useGSAP } from '@gsap/react';
@@ -11,57 +10,6 @@ import HyperText from './HyperText';
 gsap.registerPlugin(ScrollTrigger);
 
 const Hero = () => {
-  const [currentIndex, setCurrentIndex] = useState(1);
-  const [hasClicked, setHasClicked] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-  const [loadedImages, setLoadedImages] = useState(0);
-
-  const totalImages = 4;  // Update this to match your number of images
-  const nextImageRef = useRef(null);
-
-  const handleImageLoad = () => {
-    setLoadedImages(prev => prev + 1);
-  }
-
-  const upcomingImageIndex = (currentIndex % totalImages) + 1;
-
-  const handleMiniImageClick = () => {
-    setHasClicked(true);
-    setCurrentIndex(upcomingImageIndex);
-  }
-
-  useEffect(() => {
-    if(loadedImages === totalImages - 1) {
-      setIsLoading(false);
-    }
-  }, [loadedImages])
-
-  useGSAP(
-    () => {
-      if (hasClicked) {
-        gsap.set("#next-image", { visibility: "visible" });
-        gsap.to("#next-image", {
-          transformOrigin: "center center",
-          scale: 1,
-          width: "100%",
-          height: "100%",
-          duration: 1,
-          ease: "power2.inOut",
-        });
-        gsap.from("#current-image", {
-          transformOrigin: "center center",
-          scale: 0,
-          duration: 1.5,
-          ease: "power2.inOut",
-        });
-      }
-    },
-    {
-      dependencies: [currentIndex],
-      revertOnUpdate: true,
-    }
-  );
-
   useGSAP(() => {
     const ctx = gsap.context(() => {
       const isMobile = window.innerWidth <= 768;
@@ -239,49 +187,15 @@ const Hero = () => {
       duration: 1,
     });
   }, []);
-    
-
-  const getImageSrc = (index) => `/img/planet-${index}.jpg`;
 
   return (
     <div id="hero-section" className="relative h-dvh w-screen overflow-hidden">
-      {isLoading && (
-        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-black">
-          <div className="three-body">
-            <div className="three-body__dot" />
-            <div className="three-body__dot" />
-            <div className="three-body__dot" />
-          </div>
-        </div>
-      )}
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black">
         <div>
-          <div className="mask-clip-path absolute-center absolute z-50 size-64 cursor-pointer overflow-hidden rounded-lg">
-            <div onClick={handleMiniImageClick} className="origin-center scale-50 opacity-0 transition-all duration-500 ease-in hover:scale-100 hover:opacity-100">
-              <img 
-                ref={nextImageRef}
-                src={getImageSrc(upcomingImageIndex)}
-                alt={`Hero ${upcomingImageIndex}`}
-                id="current-image"
-                className="size-64 origin-center scale-150 object-cover object-center opacity-60"
-                onLoad={handleImageLoad}
-              />
-            </div>
-          </div>
           <img 
-            ref={nextImageRef}
-            src={getImageSrc(currentIndex)}
-            alt={`Hero ${currentIndex}`}
-            id="next-image"
-            className="absolute-center invisible absolute z-20 size-64 object-cover object-center opacity-60"
-            onLoad={handleImageLoad}
-          />
-
-          <img 
-            src={getImageSrc(currentIndex === totalImages - 1 ? 1 : currentIndex)}
+            src="img/planet-1.jpg"
             alt="Hero main"
             className="absolute-center left-0 top-0 size-full object-cover object-center opacity-60"
-            onLoad={handleImageLoad}
           />
         </div>
         {/* Main content container - restructured */}
