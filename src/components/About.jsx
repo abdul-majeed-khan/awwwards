@@ -60,11 +60,11 @@ const About = () => {
 
       {/* Clip Section */}
       <div className="h-dvh w-screen relative" id="clip">
-        <img
+        {/* <img
           src="img/ab-sec.png"
           alt="Front"
           className="front-image absolute left-0 top-0 size-full z-40 object-cover transform scale-80"
-        />
+        /> */}
         {/* Image Container */}
         <div className="mask-clip-path about-image relative overflow-hidden">
           {/* Overlay Layer */}
@@ -72,7 +72,7 @@ const About = () => {
           
           {/* Main Image */}
           <img
-            src="img/panther0.jpg"
+            src="img/abt1.png"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover transform scale-105"
           />
