@@ -193,7 +193,7 @@ const Hero = () => {
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black">
         <div>
           <img 
-            src="img/planet-1.jpg"
+            src="img/pur.png"
             alt="Hero main"
             className="absolute-center left-0 top-0 size-full object-cover object-center opacity-60"
           />
