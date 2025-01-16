@@ -246,7 +246,7 @@ const Hero = () => {
           className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-1 h-1"
         >
           <img 
-            src="/img/space-1.png" 
+            src="/img/ship01-min.png" 
             alt="Cutout"
             className="w-full h-full object-cover"
           />
