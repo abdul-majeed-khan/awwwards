@@ -204,12 +204,12 @@ const Hero = () => {
           <div className="flex-1 flex items-center">
             <div className="flex items-center gap-4 md:gap-8">
               <HyperText
-                text="<b>ABDUL</b>"
-                className="special-font hero-heading scroll-heading pointer-events-none text-blue-100 tracking-[15px]"
+                text="ABDUL"
+                className="special-font hero-heading scroll-heading pointer-events-none tracking-[15px]"
               />
               <HyperText
-              text="<b>MAJEED</b>"
-              className="special-font hero-heading bottom-heading pointer-events-none text-blue-100 tracking-[15px]"
+              text="MAJEED"
+              className="special-font hero-heading bottom-heading pointer-events-none tracking-[15px]"
               />
             </div>
           </div>
