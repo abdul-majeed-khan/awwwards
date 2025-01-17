@@ -144,7 +144,7 @@ const Features = () => (
             src="img/ai.jpg"
             title={
               <>
-                n<b>e</b>xussss
+                n<b>e</b>xus
               </>
             }
             description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
