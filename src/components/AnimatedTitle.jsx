@@ -118,7 +118,7 @@ const AnimatedTitle = ({ title, containerClass, effect = 'default' }) => {
           {line.split(' ').map((word, i) => (
             <span
               key={i}
-              className="animated-word"
+              className="animated-word bg-gradient-to-r from-gray-500 to-purple-100 bg-clip-text text-transparent"
               dangerouslySetInnerHTML={{ __html: word }}
             />
           ))}
