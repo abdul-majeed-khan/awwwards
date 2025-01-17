@@ -205,18 +205,18 @@ const Hero = () => {
             <div className="flex items-center gap-4 md:gap-8">
               <HyperText
                 text="ABDUL"
-                className="special-font hero-heading scroll-heading pointer-events-none tracking-[15px]"
+                className="special-font hero-heading scroll-heading pointer-events-none tracking-[40px]"
               />
               <HyperText
               text="MAJEED"
-              className="special-font hero-heading bottom-heading pointer-events-none tracking-[15px]"
+              className="special-font hero-heading bottom-heading pointer-events-none tracking-[40px]"
               />
             </div>
           </div>
 
           <AnimatedTitle
             title="<b>MJ</b>"
-            containerClass="!text-blue-100 text-center"
+            containerClass="text-center !text-6xl"
             effect="shuffle"
           />
 
