@@ -193,7 +193,7 @@ const Hero = () => {
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black">
         <div>
           <img 
-            src="img/spc.jpg"
+            src="img/pur.png"
             alt="Hero main"
             className="absolute-center left-0 top-0 size-full object-cover object-center opacity-60"
           />
@@ -246,7 +246,7 @@ const Hero = () => {
           className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-1 h-1"
         >
           <img 
-            src="/img/.png" 
+            src="/img/ship01-min.png" 
             alt="Cutout"
             className="w-full h-full object-cover"
           />
