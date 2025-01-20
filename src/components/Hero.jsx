@@ -15,7 +15,7 @@ const Hero = () => {
       const isMobile = window.innerWidth <= 768;
       
       // Set x values based on screen size
-      const xOffset = isMobile ? 10 : 220;
+      const xOffset = isMobile ? 10 : 200;
       const xxOffset = isMobile ? 10 : 100;
       const yOffset = isMobile ? 60 : 200;
   
@@ -202,14 +202,14 @@ const Hero = () => {
         <div className="absolute mt-80 inset-0 flex flex-col items-center z-40">
           {/* Top section - hero heading */}
           <div className="flex-1 flex items-center">
-            <div className="flex items-center gap-4 md:gap-8">
+            <div className="flex items-center gap-4 md:gap-16">
               <HyperText
-                text="ABDUL"
-                className="special-font hero-heading scroll-heading pointer-events-none tracking-[40px]"
+                text="A B D U L"
+                className="special-font hero-heading scroll-heading pointer-events-none tracking-[15px]"
               />
               <HyperText
-              text="MAJEED"
-              className="special-font hero-heading bottom-heading pointer-events-none tracking-[40px]"
+              text="M A J E E D"
+              className="special-font hero-heading bottom-heading pointer-events-none tracking-[15px]"
               />
             </div>
           </div>
@@ -235,7 +235,7 @@ const Hero = () => {
               id="download-resume" 
               title="Download" 
               leftIcon={<TiLocationArrow />} 
-              containerClass="!bg-yellow-300 hover:!bg-yellow-400 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-200"
+              containerClass="!bg-black/50 border border-purple-900 text-gray-300 hover:!bg-violet-900/10 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-700"
             />
           </div>
         </div>
