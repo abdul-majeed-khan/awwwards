@@ -65,6 +65,7 @@ const HyperText = ({ text, className }) => {
         <span 
           className="relative bg-gradient-to-r from-gray-500 to-purple-100 bg-clip-text text-transparent"
           style={{ 
+            filter: 'drop-shadow(0 0 8px rgba(191, 219, 254, 0.3))',
             fontFeatureSettings: isBold ? '"ss01" on' : 'normal'
           }}
         >
