@@ -139,9 +139,9 @@ body {
 }
 
 /* Add gap between texts */
-.hero-heading + .hero-heading {
+/* .hero-heading + .hero-heading {
   margin-left: 1rem;
-}
+} */
 
 
 @layer base {
