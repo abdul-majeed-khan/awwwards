@@ -195,7 +195,7 @@ const Hero = () => {
           <img 
             src="img/pur.png"
             alt="Hero main"
-            className="absolute-center left-0 top-0 size-full object-cover object-center opacity-60"
+            className="absolute-center left-0 top-0 size-full object-cover object-center"
           />
         </div>
         {/* Main content container - restructured */}
