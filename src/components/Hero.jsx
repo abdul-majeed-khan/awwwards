@@ -193,7 +193,7 @@ const Hero = () => {
       <div id="video-frame" className="relative z-10 h-dvh w-screen overflow-hidden rounded-lg bg-black">
         <div>
           <img 
-            src="img/planet02.png"
+            src="img/planet01.png"
             alt="Hero main"
             className="absolute-center left-0 top-0 size-full object-cover object-center"
           />
@@ -235,7 +235,7 @@ const Hero = () => {
               id="download-resume" 
               title="Download" 
               leftIcon={<TiLocationArrow />} 
-              containerClass="!bg-black/50 border border-purple-900 text-gray-300 hover:!bg-violet-900/10 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-700"
+              containerClass="!bg-black/50 border border-gray-500 text-gray-300 hover:!bg-gray-900/10 flex-center gap-2 px-6 py-2.5 rounded-full transition-all duration-700"
             />
           </div>
         </div>
@@ -246,7 +246,7 @@ const Hero = () => {
           className="fixed top-20 left-1/2 -translate-x-1/2 z-50 w-1 h-1"
         >
           <img 
-            src="/img/ship01-min.png" 
+            src="/img/space11.png" 
             alt="Cutout"
             className="w-full h-full object-cover"
           />
