@@ -72,7 +72,7 @@ const About = () => {
           
           {/* Main Image */}
           <img
-            src="img/abt1.png"
+            src="img/wrin.png"
             alt="Background"
             className="absolute left-0 top-0 size-full object-cover transform scale-105"
           />
