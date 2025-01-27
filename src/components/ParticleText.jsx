@@ -55,7 +55,7 @@ const ParticleText = ({ text = "NEXUS", fontSize = 120 }) => {
               vx: 0,
               vy: 0,
               size: 2,
-              color: '#60A5FA',
+              color: 'gray',
               distanceFromMouse: 0,
               forceDirectionX: 0,
               forceDirectionY: 0
@@ -91,13 +91,13 @@ const ParticleText = ({ text = "NEXUS", fontSize = 120 }) => {
           // Return to original position
           const dx = particle.originX - particle.x;
           const dy = particle.originY - particle.y;
-          particle.vx += dx * 0.05;
-          particle.vy += dy * 0.05;
+          particle.vx += dx * 0.02;
+          particle.vy += dy * 0.02;
         }
 
         // Apply friction
-        particle.vx *= 0.95;
-        particle.vy *= 0.95;
+        particle.vx *= 0.97;
+        particle.vy *= 0.97;
 
         // Update position
         particle.x += particle.vx;
