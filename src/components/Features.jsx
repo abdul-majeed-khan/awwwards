@@ -114,7 +114,7 @@ const Features = () => (
 
       <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
         <BentoCard
-          src="img/planet-1.jpg"
+          src="img/planet01.png"
           title={
             <>
               radia<b>n</b>t
