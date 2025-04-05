@@ -102,65 +102,58 @@ const Features = () => (
   <section className="bg-black pb-52">
     <div className="container mx-auto px-3 md:px-10">
       <div className="px-5 py-32">
-        <p className="font-circular-web text-lg text-blue-50">
-          Into the Metagame Layer
-        </p>
-        <p className="max-w-md font-circular-web text-lg text-blue-50 opacity-50">
-          Immerse yourself in a rich and ever-expanding universe where a vibrant
-          array of products converge into an interconnected overlay experience
-          on your world.
-        </p>
+        <h1 className="text-white text-4xl text-center font-bold">PROJECTS</h1>
       </div>
 
-      <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden rounded-md md:h-[65vh]">
+      <BentoTilt className="border-hsla relative mb-7 h-96 w-full overflow-hidden opacity-75 rounded-md md:h-[65vh]">
         <BentoCard
-          src="img/planet01.png"
+          src="img/portal.jpg"
           title={
             <>
-              radia<b>n</b>t
+              partic<b>a</b>l
             </>
           }
-          description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
+          // description="A cross-platform metagame app, turning your activities across Web2 and Web3 games into a rewarding adventure."
           isComingSoon
         />
       </BentoTilt>
 
       <div className="grid h-[135vh] w-full grid-cols-2 grid-rows-3 gap-7">
-        <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 md:row-span-2">
+        <BentoTilt className="bento-tilt_1 row-span-1 md:col-span-1 opacity-75 md:row-span-2">
           <BentoCard
-            src="img/circles.jpg"
+            src="img/atles.jpg"
             title={
               <>
-                zig<b>m</b>a
+                Atl<b>a</b>s
               </>
             }
-            description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
+            // description="An anime and gaming-inspired NFT collection - the IP primed for expansion."
             isComingSoon
           />
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_1 row-span-1 ms-32 md:col-span-1 md:ms-0">
+        <BentoTilt className="bento-tilt_1 row-span-1 opacity-75 ms-32 md:col-span-1 md:ms-0">
           <BentoCard
-            src="img/ai.jpg"
+            src="img/link.jpg"
             title={
               <>
-                n<b>e</b>xus
+                Block Scor<b>e</b>
               </>
             }
-            description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
+            // description="A gamified social hub, adding a new dimension of play to social interaction for Web3 communities."
             isComingSoon
           />
         </BentoTilt>
 
         <BentoTilt className="bento-tilt_1 me-14 md:col-span-1 md:me-0">
           <BentoCard
-            src="img/nexes.jpg"
+            src="img/space.jpg"
             title={
               <>
-                az<b>u</b>l
+                Hyp<b>e</b>rsp<b>a</b>ce
               </>
             }
-            description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            // description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
             isComingSoon
           />
         </BentoTilt>
@@ -175,10 +168,16 @@ const Features = () => (
           </div>
         </BentoTilt>
 
-        <BentoTilt className="bento-tilt_2">
-          <img
-            src="img/triangle.jpg"
-            className="size-full object-cover object-center"
+        <BentoTilt className="bento-tilt_2 opacity-75">
+        <BentoCard
+            src="img/tweet.jpg"
+            // title={
+            //   <>
+            //     parti<b>a</b>l
+            //   </>
+            // }
+            // description="A cross-world AI Agent - elevating your gameplay to be more fun and productive."
+            isComingSoon
           />
         </BentoTilt>
       </div>
