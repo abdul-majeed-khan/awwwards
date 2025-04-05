@@ -14,8 +14,8 @@ const ParticleText = ({ text = "NEXUS", fontSize = 120 }) => {
     
     // Set canvas size
     const updateCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth ;
+      canvas.height = window.innerHeight / 3;
     };
     updateCanvasSize();
     window.addEventListener('resize', updateCanvasSize);
@@ -142,8 +142,8 @@ const ParticleText = ({ text = "NEXUS", fontSize = 120 }) => {
   return (
     <canvas
       ref={canvasRef}
-      className="w-full h-screen"
-      style={{ background: 'transparent' }}
+      className="w-full"
+      style={{ background: 'white' }}
     />
   );
 };
